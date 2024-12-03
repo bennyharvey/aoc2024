@@ -6,6 +6,7 @@ import (
 )
 
 const DEBUG = true
+const LOG_LEVEL = 0
 
 // Fatals on error, otherwise returns r
 func Must[T any](r T, err error) T {
@@ -27,6 +28,34 @@ func Abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+func Printf1(format string, a ...any) {
+	if LOG_LEVEL > 0 {
+		fmt.Printf(format, a...)
+	}
+}
+
+func Println1(a ...any) {
+	if LOG_LEVEL > 0 {
+		Println(a...)
+	}
+}
+
+func Println2(a ...any) {
+	if LOG_LEVEL > 1 {
+		Println(a...)
+	}
+}
+
+func Println3(a ...any) {
+	if LOG_LEVEL > 2 {
+		Println(a...)
+	}
+}
+
+func Println(a ...any) {
+	fmt.Println(a...)
 }
 
 func PPrintSlice[T any](slice []T) {
