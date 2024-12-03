@@ -1,6 +1,11 @@
 package utils
 
-import "log"
+import (
+	"fmt"
+	"log"
+)
+
+const DEBUG = true
 
 // Fatals on error, otherwise returns r
 func Must[T any](r T, err error) T {
@@ -22,4 +27,10 @@ func Abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+func PPrintSlice[T any](slice []T) {
+	for _, el := range slice {
+		fmt.Printf("%+v\n", el)
+	}
 }
