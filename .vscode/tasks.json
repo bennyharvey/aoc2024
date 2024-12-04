@@ -16,7 +16,7 @@
 		},
 		{
 			"type": "shell",
-			"command": "go build -o build && time ./build/aoc2024",
+			"command": "go build -o build && ./build/aoc2024",
 			"label": "build and run",
 			"group": {
 				"kind": "build",
@@ -31,6 +31,22 @@
 				"clear": true
 			},
 			"problemMatcher": []
+		},
+		{
+			"type": "go",
+			"label": "go: test package",
+			"command": "test",
+			"args": [
+				"${fileDirname}"
+			],
+			"problemMatcher": [
+				"$go"
+			],
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"detail": "cd /Users/elohim/pg/go/aoc2024; go test ${fileDirname}"
 		}
 	]
 }
