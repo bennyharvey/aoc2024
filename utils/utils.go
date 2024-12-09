@@ -59,7 +59,14 @@ func Println(a ...any) {
 }
 
 func PPrintSlice[T any](slice []T) {
+	if LOG_LEVEL < 1 {
+		return
+	}
 	for _, el := range slice {
 		fmt.Printf("%+v\n", el)
 	}
+}
+
+func ClearScreen() {
+	fmt.Print("\033[H\033[2J")
 }
