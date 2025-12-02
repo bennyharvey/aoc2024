@@ -1,12 +1,14 @@
 package utils
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
+	"reflect"
 )
 
 const DEBUG = true
-const LOG_LEVEL = 0
+const LOG_LEVEL = 3
 
 // Fatals on error, otherwise returns r
 func Must[T any](r T, err error) T {
@@ -30,9 +32,24 @@ func Abs(x int) int {
 	return x
 }
 
-func Printf1(format string, a ...any) {
+func Printf(format string, a ...any) {
 	if LOG_LEVEL > 0 {
 		fmt.Printf(format, a...)
+	}
+}
+
+func Print(a ...interface{}) {
+	if LOG_LEVEL <= 0 {
+		return
+	}
+	for _, i := range a {
+		switch reflect.ValueOf(i).Kind() {
+		case reflect.Map:
+			fmt.Print(string(Must(json.MarshalIndent(i, "", "  "))), "\n")
+		default:
+			Println(i)
+		}
+		Println("===================================================")
 	}
 }
 

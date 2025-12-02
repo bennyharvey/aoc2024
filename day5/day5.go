@@ -16,6 +16,8 @@ type Manual struct {
 	correct bool
 }
 
+
+
 func SolvePart1(fileName string) {
 	manuals, _ := parseManuals(fileName)
 	sum := 0

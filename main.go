@@ -1,6 +1,8 @@
 package main
 
-import "github.com/bennyharvey/aoc2024/day10"
+import (
+	day24 "github.com/bennyharvey/aoc2024/day24"
+)
 
 func main() {
 	// day1.SolvePart1()
@@ -27,7 +29,10 @@ func main() {
 	// day9.SolvePart2("day9/day9_test.txt")
 	// day10.SolvePart1("day10/day10_sample.txt")
 	// day10.SolvePart1("day10/day10_test.txt")
-	day10.SolvePart2("day10/day10_test.txt")
+	// day10.SolvePart2("day10/day10_test.txt")
 	// day11.SolvePart1("day11/day11_sample.txt")
+	// day24.SolvePart1("day24/day24_sample.txt")
+	day24.SolvePart2("day24/day24_sample.txt")
+	// day11.SolvePart11()
 	// day11.SolvePart2("day11/day11_test.txt")
 }
